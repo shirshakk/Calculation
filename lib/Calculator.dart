@@ -34,7 +34,10 @@ class _CalculatorState extends State<Calculator> {
                 ),
                 itemCount: Dummydata().buttonValue.length,
                 itemBuilder: (context, index) {
-                  return Button(data: _buttonData[index]);
+                  return Button(
+                    data: _buttonData[index],
+                    index: index + 1,
+                  );
                 },
               ))
             ],
