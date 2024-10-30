@@ -2,6 +2,7 @@ import 'package:calculator/Widget/Display.dart';
 import 'package:calculator/Widget/button.dart';
 import 'package:flutter/material.dart';
 import 'package:calculator/DummyData/Dummydata.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 class Calculator extends StatefulWidget {
   const Calculator({super.key});
@@ -18,6 +19,32 @@ class _CalculatorState extends State<Calculator> {
       setState(() {
         _inputValue += value;
       });
+    });
+  }
+
+  void _calculateResult() {
+    try {
+      final result = _evaluateExpression(_inputValue);
+      setState(() {
+        _inputValue = result.toString();
+      });
+    } catch (e) {
+      setState(() {
+        _inputValue = 'Error';
+      });
+    }
+  }
+
+  double _evaluateExpression(String expression) {
+    Parser p = Parser();
+    Expression exp = p.parse(expression);
+    ContextModel cm = ContextModel();
+    return exp.evaluate(EvaluationType.REAL, cm);
+  }
+
+  void _clearInput() {
+    setState(() {
+      _inputValue = '';
     });
   }
 
@@ -46,10 +73,17 @@ class _CalculatorState extends State<Calculator> {
                 itemCount: Dummydata().buttonValue.length,
                 itemBuilder: (context, index) {
                   return Button(
-                    data: _buttonData[index],
-                    index: index + 1,
-                    onPressed: _updateInputValue,
-                  );
+                      data: _buttonData[index],
+                      index: index + 1,
+                      onPressed: (value) {
+                        if (value == '=') {
+                          _calculateResult();
+                        } else if (value == 'C') {
+                          _clearInput();
+                        } else {
+                          _updateInputValue(value);
+                        }
+                      });
                 },
               ))
             ],
