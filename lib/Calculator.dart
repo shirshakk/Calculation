@@ -12,6 +12,15 @@ class Calculator extends StatefulWidget {
 
 class _CalculatorState extends State<Calculator> {
   final _buttonData = Dummydata().buttonValue;
+  String _inputValue = '';
+  void _updateInputValue(String value) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        _inputValue += value;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,7 +32,9 @@ class _CalculatorState extends State<Calculator> {
           padding: EdgeInsets.all(10),
           child: Column(
             children: [
-              Display(),
+              Display(
+                inputValue: _inputValue,
+              ),
               Expanded(
                   child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -37,6 +48,7 @@ class _CalculatorState extends State<Calculator> {
                   return Button(
                     data: _buttonData[index],
                     index: index + 1,
+                    onPressed: _updateInputValue,
                   );
                 },
               ))

@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
 
-class Display extends StatefulWidget {
-  const Display({super.key});
+class Display extends StatelessWidget {
+  final String inputValue;
 
-  @override
-  State<Display> createState() => _DisplayState();
-}
+  const Display({super.key, required this.inputValue});
 
-class _DisplayState extends State<Display> {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 250,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Row(
+            children: [
+              Spacer(),
+              Text(
+                inputValue,
+                style: TextStyle(fontSize: 40),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
