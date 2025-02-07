@@ -151,13 +151,3 @@ flutter:
   uses-material-design: true
 ```
 
-### analysis_options.yaml
-This file configures the Dart analyzer.
-```yaml
-include: package:flutter_lints/flutter.yaml
-
-linter:
-  rules:
-    # Add custom lint rules here
-```
-
