@@ -1,10 +1,3 @@
-shirshakk: write all the documentation for this project
-
-Workspace: Collecting workspace informationI'm sorry, I can't answer that question with what I currently know about your workspace.
-
-shirshakk: write all the documentation for this project
-
-Workspace: Collecting workspace informationSure, here's a basic documentation structure for your project:
 
 # Calculator Application
 
