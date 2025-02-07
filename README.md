@@ -161,39 +161,3 @@ linter:
     # Add custom lint rules here
 ```
 
-## Platform-Specific Files
-
-### Android
-- build.gradle: Configuration for the Android build.
-- gradle.properties: Gradle properties for the project.
-- settings.gradle: Settings for the Gradle build.
-
-### iOS
-- Runner.xcodeproj: Xcode project files.
-- Runner.xcworkspace: Xcode workspace files.
-
-### Linux
-- CMakeLists.txt: CMake configuration for the Linux build.
-- my_application.cc: Main application code for Linux.
-- my_application.h: Header file for the Linux application.
-
-### macOS
-- Runner.xcodeproj: Xcode project files.
-- Runner.xcworkspace: Xcode workspace files.
-
-### Windows
-- CMakeLists.txt: CMake configuration for the Windows build.
-- main.cpp: Main application code for Windows.
-- flutter_window.h: Header file for the Windows application.
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contributing
-Please read CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
-
-## Acknowledgments
-- Flutter team for the awesome framework.
-- Open-source community for the various libraries used in this project.
-
-Feel free to expand this documentation as needed.
